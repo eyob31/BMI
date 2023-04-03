@@ -19,6 +19,7 @@ class _HomePageState extends State<HomePage> {
           const Spacer(),
           const Text('Enter your Details',
               style: TextStyle(
+                  color: Color.fromARGB(96, 41, 3, 8),
                   fontSize: 20,
                   fontWeight: FontWeight.w600,
                   fontStyle: FontStyle.normal)),
