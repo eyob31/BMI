@@ -8,6 +8,16 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final weightController = TextEditingController();
+  final heightController = TextEditingController();
+
+  @override
+  void dispose() {
+    weightController.dispose();
+    heightController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,12 +34,13 @@ class _HomePageState extends State<HomePage> {
                   fontWeight: FontWeight.w600,
                   fontStyle: FontStyle.normal)),
           const Spacer(),
-          const Padding(
-            padding: EdgeInsets.all(25.0),
+          Padding(
+            padding: const EdgeInsets.all(25.0),
             child: TextField(
+              controller: weightController,
               textAlign: TextAlign.center,
               keyboardType: TextInputType.number,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                   border: OutlineInputBorder(
                       borderSide:
                           BorderSide(color: Color.fromARGB(96, 41, 3, 8)),
@@ -40,12 +51,13 @@ class _HomePageState extends State<HomePage> {
                   hintText: '65'),
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.all(25.0),
+          Padding(
+            padding: const EdgeInsets.all(25.0),
             child: TextField(
+              controller: heightController,
               textAlign: TextAlign.center,
               keyboardType: TextInputType.number,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                   border: OutlineInputBorder(
                       borderSide:
                           BorderSide(color: Color.fromARGB(96, 41, 3, 8)),
@@ -58,7 +70,34 @@ class _HomePageState extends State<HomePage> {
           ),
           ElevatedButton(
               focusNode: FocusNode(descendantsAreFocusable: false),
-              onPressed: () {},
+              onPressed: () {
+                showModalBottomSheet(
+                    backgroundColor: Colors.transparent,
+                    barrierColor: Colors.transparent,
+                    context: context,
+                    builder: (_) {
+                      return Container(
+                        color: Colors.black54,
+                        child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: const [
+                              Text('Your BMI is',
+                                  style: TextStyle(
+                                      color: Color.fromARGB(255, 206, 218, 228),
+                                      fontSize: 20)),
+                            ]),
+                      );
+                    });
+
+                // showDialog(
+                //     context: context,
+                //     builder: (context) {
+                //       return AlertDialog(
+                //         content: Text(weightController.text),
+                //         actions: [Text(heightController.text)],
+                //       );
+                //     });
+              },
               style: const ButtonStyle(),
               child: const Text('Result')),
           const Spacer(
