@@ -67,7 +67,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                       ? kActiveCardColor
                       : kInactiveCardColor,
                   cardChild: const IconContent(
-                      icon: FontAwesomeIcons.mars, label: 'Female'),
+                      icon: FontAwesomeIcons.venusMars, label: 'Female'),
                 ),
               ),
             ],

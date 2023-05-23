@@ -19,7 +19,7 @@ class ResultPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('BMICALCULATOR'),
+          title: const Text('BMI CALCULATOR'),
         ),
         body: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -31,7 +31,7 @@ class ResultPage extends StatelessWidget {
                 padding: const EdgeInsets.all(15.0),
                 alignment: Alignment.bottomLeft,
                 child: const Text(
-                  'Your Reslut',
+                  'Your Result',
                   style: kTitleTextStyle,
                 ),
               )),
